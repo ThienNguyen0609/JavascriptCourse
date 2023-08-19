@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toast {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.toast-item {
+    position: relative;
+    display: flex;
+    width: 270px;
+    height: 80px;
+    align-items: center;
+    background-color: #ccc;
+    background-image: linear-gradient(45deg, black, transparent);
+    margin-top: 10px;
+    padding-right: 10px;
+    border-radius: 10px 0 0 10px;
+    animation: messageSlider 0.3s ease forwards, hideMessage 1.5s ease 3.5s forwards;
+}
+@keyframes messageSlider {
+    from{opacity: 0; right: -270px;}
+    to{opacity: 1; right: 0;}
+}
+@keyframes hideMessage {
+    to{opacity: 0;}
+}
+.toast-content {
+    flex: 2;
+}
+.toast-icon {
+    padding: 10px;
+    font-size: 24px;
+}
+.toast-close {
+    color: #fff;
+    cursor: pointer;
+}
+
+.message-board {
+    display: flex;
+    width: 400px;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    background: #333;
+    margin: auto;
+    margin-top: 200px;
+}
+.btn {
+    background-image: linear-gradient(45deg, black, transparent);
+    background-color: #fff;
+    width: 90px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #fff;
+    border-radius: 15px;
+}
+.succeed-message:hover {
+    background-color: #00e100;
+}
+.warning-message:hover {
+    background-color: yellow;
+}
+.error-message:hover {
+    background-color: #ff4a4a;
+}
+
+.color-00e100 {
+    color: #00e100;
+    border-left: 10px solid #00e100;
+}
+.color-ffff00 {
+    color: #ffff00;
+    border-left: 10px solid #ffff00;
+
+}
+.color-ff4a4a {
+    color: #ff4a4a;
+    border-left: 10px solid #ff4a4a;
+
+}

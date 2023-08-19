@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #000;
+}
+
 .mg-bottom {
     margin-bottom: 15px;
 }
@@ -21,14 +25,14 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
     height: 5px;
     cursor: pointer;
-    background: #ccc;
+    background: #aaa;
     border-radius: 15px;
 }
 input[type=range]::-webkit-slider-thumb {
     border-radius: 50%;
     height: 15px;
     width: 15px;
-    background: #ea2658;
+    background: #fff;
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -5px;
@@ -57,7 +61,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .albums header {
-    color: #ea2658;
+    color: #fff;
     font-size: 24px;
     text-align: center;
     margin-top: 15px;
@@ -81,7 +85,8 @@ input[type=range]::-webkit-slider-thumb {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-image: linear-gradient(45deg, black, transparent);
+    background-color: #ccc;
     padding: 10px 0;
     position: fixed;
     width: 375px;
@@ -89,7 +94,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .dashboard .add-btn {
     position: absolute;
-    background-color: #ea2658;
+    background-color: #000;
     color: #fff;
     text-align: center;
     bottom: -15px;
@@ -101,14 +106,15 @@ input[type=range]::-webkit-slider-thumb {
     transition: all 0.3s;
 }
 .dashboard .add-btn:hover {
-    background-color: #e66283;
+    background-color: #aaa;
+    color: #000;
 }
 .dashboard header {
     text-align: center;
 }
 
 .name-song {
-    color: #ea2658;
+    color: #fff;
 }
 
 .dashboard .cdImage {
@@ -134,8 +140,9 @@ input[type=range]::-webkit-slider-thumb {
     display: block !important;
 }
 .dashboard .controler .btn {   
-    color: #555;
+    color: #fff;
     cursor: pointer;
+    transition: all 0.3s;
 }
 .dashboard .controler .btn:hover {
     color: #000;
@@ -143,11 +150,10 @@ input[type=range]::-webkit-slider-thumb {
 
 .dashboard .controler #toggle-play-btn {
     font-size: 30px;
-    color: #ea2658;
 }
 
 .controler > .active {
-    color: #ea2658 !important;
+    color: #000 !important;
 }
 
 #play-btn,
@@ -171,7 +177,7 @@ input[type=range]::-webkit-slider-thumb {
     position: relative;
     display: flex;
     height: 80px;
-    background-color: #fff;
+    background-image: linear-gradient(45deg, black, transparent);
     padding: 5px 15px 5px 5px;
     align-items: center;
     margin-bottom: 10px;
@@ -179,7 +185,7 @@ input[type=range]::-webkit-slider-thumb {
     transition: all 0.5s;
 }
 .playlist-item:hover {
-    background-color: #eee;
+    background-color: #fff;
 }
 .playlist-item .image-song {
     width: 70px;
@@ -210,5 +216,5 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .info .name-actor {
-    color: #333;
+    color: #ccc;
 }
