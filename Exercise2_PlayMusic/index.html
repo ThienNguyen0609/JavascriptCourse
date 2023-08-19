@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="shortcut icon" href="#" />
+        <script src="https://kit.fontawesome.com/c638960eab.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <div class="albums dp-none">
+                <header>YOUR ALBUMS</header>
+                <i id="close-albums" class="fas fa-times"></i>
+                <div id="list"></div>
+            </div>
+            <div class="dashboard">
+                <header class="mg-bottom">
+                    <h4>Now Playing:</h4>
+                    <h2 id="name-song" class="name-song">Chưa chọn bài</h2>
+                </header>
+
+                <div class="cdImage mg-bottom"></div>
+
+                <div class="controler mg-bottom">
+                    <div id="repeat-btn" class="btn"><i class="fas fa-redo"></i></div>
+                    <div id="pre-btn" class="btn"><i class="fas fa-backward"></i></div>
+                    <div id="toggle-play-btn" class="btn">
+                        <i id="play-btn" class="fas fa-play-circle active"></i>
+                        <i id="pause-btn" class="fas fa-pause-circle"></i>
+                    </div>
+                    <div id="next-btn" class="btn"><i class="fas fa-forward"></i></div>
+                    <div id="random-btn" class="btn"><i class="fas fa-random"></i></div>
+                </div>
+
+                <div id="show-albums" class="add-btn">Thêm vào playlist</div>
+
+                <input id="progress" class="progress mg-bottom" type="range" value="0" step="1" min="0" max="100" />
+
+                <audio id="audio"></audio>
+            </div>
+            <div class="playlist">
+                <div id="playlist"></div>
+            </div>
+        </div>
+        
+        <script src="./assets/js/main.js" async defer></script>
+    </body>
+</html>
