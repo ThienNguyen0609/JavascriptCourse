@@ -6,12 +6,17 @@ const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
 let newPlaylist = []
+let newAlbums = []
 let arrayList = []
 let currentIndex
+let boolen = []
 
 let start = () => {
     getSong(albumsApi, renderAlbum)
     getSong(playlistApi, renderPlaylist)
+    setTimeout(()=>{
+        checkHasInPlaylist()
+    }, 2000)
     interface()
     handleEventPlace()
 }
@@ -24,10 +29,10 @@ let getSong = (linkApi, callback) => {
 
 let renderAlbum = (albums) => {
     const list = $("#list")
-
+    newAlbums = albums
     let html = albums.map(song => {
         return `
-            <div class="playlist-item">
+            <div id="album-item${song.id}" class="playlist-item">
                 <div class="image-song" style="background-image: url('${song.image}')"></div>
                 <div class="info">
                     <h3 class="name-song">${song.name}</h3>
@@ -35,6 +40,7 @@ let renderAlbum = (albums) => {
                 </div>
                 <div onclick="showOption(${song.id}, 'option', event)" class="show-option"><i class="fas fa-ellipsis-v"></i></div>
                 <div onclick="handleAddToPlaylist(${song.id}, '${song.name}', '${song.image}', '${song.src}', '${song.actor}')" onmouseout="hideOption(${song.id}, 'option')" id="option${song.id}" class="option dp-none">Thêm vào playlist</div>
+                <div id="active-item${song.id}" class="non-active"></div>
             </div>
         `
     })
@@ -182,6 +188,7 @@ let handleAddToPlaylist = (id, name, image, src, actor) => {
         getSong(playlistApi, (songs)=>{
             newPlaylist = songs
             console.log(newPlaylist)
+            checkHasInPlaylist()
         })
     })
 }
@@ -237,6 +244,7 @@ let handleRemoveSong = (id, event) => {
         getSong(playlistApi, (songs)=>{
             newPlaylist = songs
             console.log(newPlaylist)
+            checkHasInPlaylist()
         })
     })
 }
@@ -249,6 +257,24 @@ let removeSong = (songId, callback) => {
     .then(callback)
 }
 
+// ===================== non-active / active album item
+let checkHasInPlaylist = () => {
+    let hasInPlaylist = false
+    newAlbums.forEach(album => {
+        newPlaylist.forEach(song => {
+            if(song.songId === album.id) hasInPlaylist = true
+        });
+        setActiveElement(album.id, hasInPlaylist)
+        hasInPlaylist = false
+    });
+}
+let setActiveElement = (item, boolen) => {
+    const activeItem = $("#active-item"+item)
+    const albumItem = $("#album-item"+item)
+
+    activeItem.classList.toggle("active", boolen)
+    albumItem.classList.toggle("active1", boolen)
+}
 // ===================== play song
 let playSong = (id, name, image, src) => {
     dashboardInterface(id, name, image, src)
@@ -283,6 +309,10 @@ let playRandomSong = () => {
     const randomSong = newPlaylist[currentIndex]
     playSong(randomSong.songId, randomSong.songName, randomSong.songImage, randomSong.songSrc)
 }
+let randomIndex = (index, boolen) => {
+    if(boolen) arrayList = [index]
+    else arrayList = []
+}
 // ===================== Interface
 let interface = () => {
     getSong(curSongApi, song => {
@@ -311,11 +341,6 @@ let activeSong = (curIndex) => {
             itemSong.classList.add("active")
         }
     });
-}
-
-let randomIndex = (index, boolen) => {
-    if(boolen) arrayList = [index]
-    else arrayList = []
 }
 
 // ===================== show / hide option

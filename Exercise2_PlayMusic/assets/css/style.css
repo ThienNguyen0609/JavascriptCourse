@@ -15,6 +15,10 @@ body {
     display: none;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 input[type=range] {
     -webkit-appearance: none;
     width: 90%;
@@ -47,13 +51,14 @@ input[type=range]::-webkit-slider-thumb {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .albums {
-    background-color: #ccc;
+    background-color: #555;
     z-index: 999;
     position: fixed;
     bottom: 0;
     top: 0;
     width: 375px;
     animation: albumsSlider 0.5s ease forwards;
+    overflow-y: scroll;
 }
 @keyframes albumsSlider {
     from {top: 100%; opacity: 0;}
@@ -80,6 +85,25 @@ input[type=range]::-webkit-slider-thumb {
 .albums #list {
     padding: 10px;
 }
+#list .non-active {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    background-image: linear-gradient(45deg, black, transparent);
+    opacity: 0.7;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#list .active {
+    display: block;
+}
+#list > .active1 {
+    background-color: #ccc !important;
+    cursor: default !important;
+}
+
 
 .dashboard {
     display: flex;
