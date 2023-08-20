@@ -40,7 +40,7 @@ let renderAlbum = (albums) => {
                 </div>
                 <div onclick="showOption(${song.id}, 'option', event)" class="show-option"><i class="fas fa-ellipsis-v"></i></div>
                 <div onclick="handleAddToPlaylist(${song.id}, '${song.name}', '${song.image}', '${song.src}', '${song.actor}')" onmouseout="hideOption(${song.id}, 'option')" id="option${song.id}" class="option dp-none">Thêm vào playlist</div>
-                <div id="active-item${song.id}" class="non-active"></div>
+                <div id="active-item${song.id}" class="non-active"><h2>Đã thêm vào playlist</h2></div>
             </div>
         `
     })
